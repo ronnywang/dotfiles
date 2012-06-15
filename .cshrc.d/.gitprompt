@@ -1,0 +1,10 @@
+setenv GIT_BRANCH_CMD `sh -c 'git branch --no-color 2> /dev/null' | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+if (! $?old_prompt) then
+    set old_prompt = "$prompt"
+endif
+
+if ("$GIT_BRANCH_CMD" == '') then
+    set prompt = "$old_prompt"
+else
+    set prompt = "${old_prompt}[$GIT_BRANCH_CMD] "
+endif

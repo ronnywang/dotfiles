@@ -1,0 +1,48 @@
+# $FreeBSD: src/etc/csh.cshrc,v 1.3 1999/08/27 23:23:40 peter Exp $
+#
+# System-wide .cshrc file for csh(1).
+#
+set autoexpand
+set autolist
+set dspmbyte="big5"
+set history = 5000
+set mail = (1 /var/mail/$USER)
+set manpath = (/usr/local/man /usr/X11R6/man /usr/man)
+set path = (~/bin ~)
+set path = ($path /usr/local/pgsql/bin)
+set path = ($path /usr/local/bin /usr/local/sbin /usr/X11R6/bin /usr/bin)
+set path = ($path /usr/sbin /usr/games /bin /sbin /stand)
+#set prompt = "%B%m%b [%/] -%n- "
+if ( ! $?WINDOW ) then
+  set prompt = "%{[32m%}%n%{[0m%}@%{[36m%}%m%{[0m%} [%{[32m%}%~%{[0m%}] (%{[36m%}%T%{[0m%}) "
+else
+  set prompt = "%{[32m%}%n%{[0m%}@%{[36m%}%m%{[0m%} [%{[32m%}%~%{[0m%}] [%{[36m%}%T%{[0m%}/%{[36m%}W$WINDOW%{[0m%}] "
+endif
+set savehist = 5000
+#
+setenv BLOCKSIZE "k"
+setenv TERM "screen"
+setenv CLICOLOR_FORCE
+setenv ENABLE_STARTUP_LOCALE "zh_TW.UTF-8"
+setenv LANG "zh_TW.UTF-8"
+setenv LC_ALL "zh_TW.UTF-8"
+setenv LESS "-EmrSw"
+setenv LESSCHARDEF "8bcccbcc18b95.."
+setenv LSCOLORS "gxfxcxdxbxegedabagacad"
+setenv PAGER "/usr/bin/less"
+#
+if ( $OSTYPE == FreeBSD ) then
+  alias colorls "/bin/ls -FGg"
+  alias ls "ls-F -FGg"
+  alias top "/usr/bin/top -s1"
+  setenv EDITOR "/usr/local/bin/vim"
+  setenv VISUAL $EDITOR
+else
+  alias colorls "/bin/ls -aF --color=always"
+  alias ls "ls-F -aF --color=always"
+  alias n "/usr/bin/nslookup"
+  alias top "/usr/bin/top -d1"
+  setenv EDITOR "/usr/bin/vim"
+  setenv VISUAL $EDITOR
+  set path = ($path /usr/local/mysql/bin/ /srv/mysql/bin/)
+endif
