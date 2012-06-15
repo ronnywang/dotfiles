@@ -6,7 +6,7 @@ if (! $?prompt || ! $?tcsh ) exit
 set color
 
 if ( -d ~/.cshrc.d ) then
-    foreach name (`ls-F ~/.cshrc.d/*`)
+    foreach name (`find ~/.cshrc.d/*`)
         source "$name"
     end
 endif
