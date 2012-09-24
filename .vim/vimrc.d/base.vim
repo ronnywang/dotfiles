@@ -1,4 +1,3 @@
-set cindent
 set hls
 set nocompatible
 set nobomb
@@ -17,5 +16,3 @@ set complete+=k
 syntax on
 
 colorscheme desert
-
-filetype plugin on
