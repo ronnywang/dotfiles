@@ -15,3 +15,7 @@ set shiftwidth=4
 set complete+=k
 
 syntax on
+
+colorscheme desert
+
+filetype plugin on
