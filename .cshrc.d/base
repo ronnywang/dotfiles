@@ -31,18 +31,18 @@ setenv LESSCHARDEF "8bcccbcc18b95.."
 setenv LSCOLORS "gxfxcxdxbxegedabagacad"
 setenv PAGER "/usr/bin/less"
 #
-if ( $OSTYPE == FreeBSD ) then
+if ( $OSTYPE == FreeBSD || $OSTYPE == darwin ) then
   alias colorls "/bin/ls -FGg"
-  alias ls "ls-F -FGg"
+  alias ls "ls -FGg"
   alias top "/usr/bin/top -s1"
-  setenv EDITOR "/usr/local/bin/vim"
+  setenv EDITOR `which vim`
   setenv VISUAL $EDITOR
 else
   alias colorls "/bin/ls -aF --color=always"
   alias ls "ls-F -aF --color=always"
   alias n "/usr/bin/nslookup"
   alias top "/usr/bin/top -d1"
-  setenv EDITOR "/usr/bin/vim"
+  setenv EDITOR `which vim`
   setenv VISUAL $EDITOR
   set path = ($path /usr/local/mysql/bin/ /srv/mysql/bin/)
 endif
