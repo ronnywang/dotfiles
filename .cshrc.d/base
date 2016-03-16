@@ -12,6 +12,8 @@ set path = (~/bin ~)
 set path = ($path /usr/local/pgsql/bin)
 set path = ($path /usr/local/bin /usr/local/sbin /usr/X11R6/bin /usr/bin)
 set path = ($path /usr/sbin /usr/games /bin /sbin /stand)
+set path = ($path  ~/node_modules/.bin/)
+
 #set prompt = "%B%m%b [%/] -%n- "
 if ( ! $?WINDOW ) then
   set prompt = "%{[32m%}%n%{[0m%}@%{[36m%}%m%{[0m%} [%{[32m%}%~%{[0m%}] (%{[36m%}%T%{[0m%}) "
