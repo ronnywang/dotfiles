@@ -13,6 +13,7 @@ set path = ($path /usr/local/pgsql/bin)
 set path = ($path /usr/local/bin /usr/local/sbin /usr/X11R6/bin /usr/bin)
 set path = ($path /usr/sbin /usr/games /bin /sbin /stand)
 set path = ($path  ~/node_modules/.bin/)
+set path = ($path  ~/work/dotfiles/bin)
 
 #set prompt = "%B%m%b [%/] -%n- "
 if ( ! $?WINDOW ) then
