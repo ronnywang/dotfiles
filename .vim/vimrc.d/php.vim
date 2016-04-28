@@ -1,7 +1,7 @@
 source ~/.vim/plugin/matchit.vim
 
 " pear install doc.php.net/pman
-au FileType php set keywordprg=/usr/bin/man\ -M\ /usr/local/share/doc/pear/pman/
+au FileType php set keywordprg=/usr/bin/pman
 
 " http://vim.wikia.com/wiki/Better_indent_support_for_php_with_html
 " => ~/.vim/indent/php.vim
@@ -20,8 +20,5 @@ map <F6> lbi<?= _('<Esc>lwi') ?><Esc>
 
 " http://www.vim.org/scripts/script.php?script_id=1355
 
-au FileType php source ~/.vim/plugin/php-doc.vim 
 au FileType php inoremap <C-P> <ESC>:call PhpDocSingle()<CR>A 
 au FileType php nnoremap <C-P> :call PhpDocSingle()<CR> 
-" edit config.vim modify php-doc config
-source ~/.vim/config/php-doc.vim
