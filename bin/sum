@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+<?php
+
+$fp = fopen('php://stdin', 'r');
+$sum = 0;
+while (false !== ($line = fgets($fp))) {
+    $sum += intval(trim($line));
+}
+echo $sum . "\n";
