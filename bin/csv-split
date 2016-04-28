@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+
+$fp = fopen('php://stdin', 'r');
+$args = $_SERVER['argv'];
+$output = fopen('php://output', 'w');
+array_shift($args);
+
+while ($rows = fgetcsv($fp)) {
+  if ($args) {
+      fputcsv($output, array_map(function($id) use ($rows) {return $rows[$id]; }, $args));
+  } else {
+      fputcsv($output, $rows);
+  }
+}
