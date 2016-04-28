@@ -1,0 +1,14 @@
+#!/usr/bin/env php
+<?php
+
+$file = tempnam('', '');
+file_put_contents($file, file_Get_contents('php://stdin'));
+$sheethub_domain = 'sheethub.com';
+$curl = curl_init("https://{$sheethub_domain}/file/upload");
+$cfile = curl_file_create($file, 'text/csv', 'data.csv');
+curl_setopt($curl, CURLOPT_POSTFIELDS, array('file' => $cfile));
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+$content = curl_exec($curl);
+curl_close($curl);
+
+echo "https://sheethub.com" . json_decode($content)->data->uploaded_url . "\n";
