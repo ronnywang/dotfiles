@@ -1,7 +1,8 @@
 #
 defc1 off
-caption always "%-w%<%{=B GK}%n %t%{= KW}%+w"
-hardstatus alwayslastline "%{=b BW} {%l}%018=%{=b WK} %n %t %-029=%{YK} %Y %M %d(%D) %{RW} %C %A"
+caption always "%-w%{=b 15;4}%n %t%{=b 8;11}%+w"
+backtick        2 1 2   cut -d' ' -f1-3 /proc/loadavg
+hardstatus alwayslastline "%{=b 15;4} {%2`}%018=%{=b 8;15} %n %t %-28=%{=b 8;11} %Y %M %d(%D) %{=b 15;9} %C %A"
 defscrollback         1000            # default: 100
 defencoding utf-8 
 shelltitle shell
